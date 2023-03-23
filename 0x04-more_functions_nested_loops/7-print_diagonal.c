@@ -16,13 +16,13 @@ void print_diagonal(int n)
 		_putchar('\n');
 	}
 	else
-	{num_linesnum_lines
+	{
 		for (num_lines = 0; num_lines < n; num_lines++)
 		{
 			for (num_spaces = 0; num_spaces < num_lines; num_spaces++)
 				_putchar(' ');
 			_putchar('\\');
+			_putchar('\n');
 		}
-		_putchar('\n');
 	}
 }
