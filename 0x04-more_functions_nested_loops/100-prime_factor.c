@@ -5,6 +5,8 @@
  *
  * Return: Always 0.
  */
+int isPrime(long int n);
+long int biggestFactor(long int a);
 int main(void)
 {
 	long int number;
