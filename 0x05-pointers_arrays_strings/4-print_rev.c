@@ -4,21 +4,25 @@
  * @s: pointer to string.
  */
 
-void print_rev(char *s)
+void print_rev(char *str)
 {
-	int length;
-	char *p;
+	char *z = str;
+	int i;
+	int count1 = 0;
+	int count = 0;
 
-	length = 0;
-	p = s;
-
-	while (p[length] != '\0')
-		length++;
-
-	while (length >= 0)
+	while (*str != '\0')
 	{
-		_putchar(*(s + length));
-		length--;
+		str++;
+		count1++;
+	}
+
+	i = count1 - 1;
+	while (i >= 0)
+	{
+		_putchar(*(z + i));
+		i--;
+		count++;
 	}
 	_putchar('\n');
 }
