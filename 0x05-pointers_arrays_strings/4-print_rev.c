@@ -13,7 +13,7 @@ void print_rev(char *s)
 	length = 0;
 	p = s;
 
-	while (*p++ != '\0')
+	while (p[length] != '\0')
 		length++;
 
 	while (length >= 0)
@@ -21,5 +21,5 @@ void print_rev(char *s)
 		_putchar(*(s + length));
 		length--;
 	}
+	_putchar('\n');
 }
-
