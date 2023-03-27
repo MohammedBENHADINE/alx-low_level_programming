@@ -1,0 +1,24 @@
+#include "main.h"
+/**
+ * _strlen - count str length in a string.
+ * @s: pointer to string.
+ *
+ * Return: int, length of string
+ */
+
+int _strlen(char *s)
+{
+	char *p;
+	int i=0;
+
+	p = s;
+	while(*s != '\0')
+
+	{}
+d
+
+	
+	*a = *b;
+	*b = tempo;
+}
+
