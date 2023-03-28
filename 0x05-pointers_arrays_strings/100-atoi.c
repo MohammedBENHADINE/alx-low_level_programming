@@ -29,7 +29,7 @@ int _atoi(char *s)
 	int count_minus = 0;
 	int i = 0;
 	int power = 0;
-	int result = 0;
+	unsigned int result = 0;
 	int started = 0;
 
 	if (*s == '\0')
