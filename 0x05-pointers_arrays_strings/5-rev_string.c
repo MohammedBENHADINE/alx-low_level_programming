@@ -1,25 +1,35 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * rev_string - rev a string.
- * @str: pointer to string.
+ * @s: pointer to string.
  */
 
-void rev_string(char *str)
+void rev_string(char *s)
 {
-	char *z = str;
+	char *p;
+	char tmp;
+	int len = 0;
 	int i;
-	int count = 0;
+	int j;
 
-	while (*str != '\0')
+	if (*s == '\0')
+		return;
+	p = s;
+	while (*p != '\0')
 	{
-		str++;
-		count++;
+		p++;
+		len++;
 	}
-
-	i = count - 1;
-	while (i >= 0)
+	j = 0;
+	i = len;
+	i--;
+	while (j < len / 2)
 	{
-		*str = *(z + i);
+		tmp = s[j];
+		s[j] = s[i];
+		s[i] = tmp;
 		i--;
+		j++;
 	}
 }
