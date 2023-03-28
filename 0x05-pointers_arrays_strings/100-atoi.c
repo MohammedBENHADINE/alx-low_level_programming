@@ -34,7 +34,6 @@ int _atoi(char *s)
 
 	if (*s == '\0')
 		return (0);
-
 	while (s[i] != '\0')
 	{
 		if (s[i] == '-')
@@ -54,7 +53,6 @@ int _atoi(char *s)
 	}
 	if (end == -1)
 		return (0);
-
 	power = end - start;
 	i = 0;
 	while (i <= power)
