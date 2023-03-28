@@ -24,13 +24,16 @@ int myPow(int x, int n)
 
 int _atoi(char *s)
 {
-	int start = 0;
-	int end = 0;
+	int start = -1;
+	int end = -1;
 	int count_minus = 0;
 	int i = 0;
 	int power = 0;
-	int result = 0;
+	short result = 0;
 	int started = 0;
+
+	if (*s == '\0')
+		return (0);
 
 	while (s[i] != '\0')
 	{
@@ -49,6 +52,9 @@ int _atoi(char *s)
 		}
 		i++;
 	}
+	if (end == -1)
+		return (0);
+
 	power = end - start;
 	i = 0;
 	while (i <= power)
@@ -56,7 +62,7 @@ int _atoi(char *s)
 		result += (s[start + i] - 48) * myPow(10, power - i);
 		i++;
 	}
-	if (count_minus % i == 0)
+	if (count_minus % 2 == 0)
 		return (result);
 	else
 		return (-result);
