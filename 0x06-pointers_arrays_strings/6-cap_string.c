@@ -8,14 +8,14 @@
 */
 int isSeparator(char c)
 {
-	char separators[11] = {'\t', ' ', '\n', ',', '.', '!',
+	char separator[11] = {'\t', ' ', '\n', ',', '.', '!',
 		'"', '(',  ')', '{', '}'};
 	int i;
 
 	for (i = 0; i < 11; i++)
 		if (c == separator[i])
-			return (0);
-	return (1);
+			return (1);
+	return (0);
 }
 /**
  * cap_string - capitalize string.
