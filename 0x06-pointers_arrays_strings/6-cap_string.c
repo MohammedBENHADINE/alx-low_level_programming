@@ -28,6 +28,9 @@ char *cap_string(char *s)
 {
 	char *saved = s;
 
+	if (*s >= 97 && *s <= 122)
+		*s -= 32;
+	s++;
 	while (*s != '\0')
 	{
 		if (isSeparator(*(s - 1)) && *s >= 97 && *s <= 122)
