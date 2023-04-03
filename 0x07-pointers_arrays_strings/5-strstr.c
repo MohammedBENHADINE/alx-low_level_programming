@@ -26,7 +26,9 @@ char *_strstr(char *haystack, char *needle)
 				p++;
 				q++;
 			}
-			if (*q == '\0')
+			if (*q != '\0')
+				found = NULL;
+			else
 				break;
 		}
 		else
