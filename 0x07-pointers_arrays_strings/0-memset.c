@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _memset - set memory
  * @s: pointer to memory area
