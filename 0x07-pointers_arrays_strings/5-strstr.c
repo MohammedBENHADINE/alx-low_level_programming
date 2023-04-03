@@ -29,7 +29,7 @@ char *_strstr(char *haystack, char *needle)
 			if (*q != '\0')
 				found = NULL;
 			else
-				break;
+				return (found);
 		}
 		else
 		{
