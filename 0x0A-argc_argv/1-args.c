@@ -3,12 +3,12 @@
 
 /**
  * main - check the code
- *
+ *@argc: number of args
+ *@argv: pointer to args'array
  * Return: Always 0.
  */
-int main(int argc, char **argv)
+int main(int argc, char __attribute__ ((unused)) **argv)
 {
-	char
-	_putchar(
+	printf("%d\n", argc);
 	return (0);
 }
