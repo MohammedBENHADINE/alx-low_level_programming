@@ -1,62 +1,32 @@
-#include "main.h"
 /**
- * get_length  - strlen-like
- * @str: pointer to str
- *
- * Return: length of str
- */
-int get_length(char *str)
-{
-	char *p = str;
-	int len;
-
-	if (p)
-		while (*p != '\0')
-		{
-			len++;
-			p++;
-		}
-	else
-		return (0);
-
-	return (len + 1);
-}
-
-/**
- * str_concat - allocate space for 2  string
- * @s1: pointer to string 1
- * @s2: pointer to string 2
- *
- * Return: pointer to new string, or NULL if it fails
+ * str_concat - concatenate strings
+ * @s1: string 1
+ * @s2: string 2
+ * Return: NULL if failure
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len, len1, len2 = 0;
-	char *p, *q;
-	int i;
+	char *s;
+	int a, b, c, d;
 
-	if (s1 == NULL && s2 == NULL)
+	if (s1 == 0)
+		s1 = "";
+	if (s2 == 0)
+		s2 = "";
+	for (a = 0; s1[a] != '\0'; a++)
+		;
+	for (b = 0; s2[b] != '\0'; b++)
+		;
+	b++;
+	s = malloc(a * sizeof(*s1) + b * sizeof(*s2));
+	if (s == 0)
 		return (NULL);
-	len1 = get_length(s1);
-	len2 = get_length(s2);
-	if (len2 == 0 || len1 == 0)
-		len = len2 + len1;
-	else
-		len = len2 + len1 - 1;
-	p = malloc(len * sizeof(char));
-	if (p == NULL)
-		return (NULL);
-	q = p;
-	if (len1)
+	for (c = 0, d = 0; c < a + b; c++)
 	{
-		for (i = 0; i < len1 - 1; i++)
-			*(p + i) = *(s1 + i);
-		p = p + i;
+		if (c < a)
+			s[c] = s1[c];
+		else
+			s[c] = s2[d++];
 	}
-	if (len2)
-	{
-		for (i = 0; i < len2; i++)
-			*(p + i) = *(s2 + i);
-	}
-	return (q);
+	return (s);
 }
