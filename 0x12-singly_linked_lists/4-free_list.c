@@ -3,15 +3,16 @@
  * free_list - free a list
  * @h: pointer to list
  **/
-void free_list(list_t *head);
+void free_list(list_t *head)
 {
-	list_t *cursor;
+	list_t *cursor, *temp;
 
 	cursor = head;
 	while (cursor)
 	{
 		free(cursor->str);
-		cursor = cursor->next;
+		temp = cursor;
 		free(cursor);
+		cursor = temp->next;
 	}
 }
