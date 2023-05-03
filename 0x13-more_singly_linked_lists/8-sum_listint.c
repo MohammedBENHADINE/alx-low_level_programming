@@ -4,7 +4,7 @@
  * @head: pointer to list
  * Return: pointer to node or NULL
  **/
-int sum_listint(listint_t *head);
+int sum_listint(listint_t *head)
 {
 	listint_t *tmp;
 	int count = 0;
