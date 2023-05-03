@@ -1,48 +1,41 @@
 #include "lists.h"
+
 /**
- * insert_nodeint_at_index - get sum of list
- * @head: pointer to list
- * @idx: index where to insert
- * @n: int
- * Return: pointer to new node or NULL
- **/
+ * insert_nodeint_at_index - Inserts a new node at a given position
+ * @head: Pointer to address of a list
+ * @idx: Index of the list where new node should be added
+ * @n: Integer
+ *
+ * Return: Address of the new node
+ * Null if failed
+ */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *cursor;
-	listint_t *new;
-	unsigned int pos = 0;
+	unsigned int i = 0;
+	listint_t *tmp = *head;
+	listint_t *new = malloc(sizeof(listint_t));
 
-	cursor = *head;
-	if (idx == 0)
+	if (!new)
+		return (NULL);
+	while (*head && idx)
 	{
-		new = malloc(sizeof(listint_t));
-		if (!new)
-		{
-			free(new);
+		if (!tmp)
 			return (NULL);
-		}
-		new->n = n;
-		new->next = *head;
-		*head = new;
-		return (*head);
+		if (i == idx - 1)
+			break;
+		tmp = tmp->next;
+		++i;
 	}
-	while (cursor->next)
+	new->n = n;
+	if (idx)
 	{
-		if (pos == idx - 1)
-		{
-			new = malloc(sizeof(listint_t));
-			if (!new)
-			{
-				free(new);
-				return (NULL);
-			}
-			new->n = n;
-			new->next = cursor->next;
-			cursor->next = new;
-			return (new);
-		}
-		pos++;
-		cursor = cursor->next;
+		new->next = tmp->next;
+		tmp->next = new;
 	}
-	return (NULL);
+	else
+	{
+		new->next = tmp;
+		*head = new;
+	}
+	return (new);
 }
