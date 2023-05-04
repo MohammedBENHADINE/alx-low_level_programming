@@ -9,13 +9,19 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t i = 0;
-	
-	if (h == NULL)
+	const listint_t *cursor = head;
+
+	if (head == NULL)
 		return (98);
-	while (h)
+	printf("%d\n", cursor->n);
+	cursor = cursor->next;
+	i++;
+	while (cursor)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		if (cursor == head)
+			return (98);
+		printf("%d\n", cursor->n);
+		cursor = cursor->next;
 		++i;
 	}
 	return (i);
