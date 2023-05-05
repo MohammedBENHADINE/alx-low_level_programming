@@ -6,7 +6,7 @@
 int get_endianness(void)
 {
 	unsigned long testor = 0x89ABCDEF;
-	unsigned int *first = (unsigned int*) &testor;
+	unsigned int *first = (unsigned int *) &testor;
 
 	if (*first == 0x89AB)
 		return (0);
