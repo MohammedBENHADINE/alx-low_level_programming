@@ -6,24 +6,18 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int length = 0, i;
-	unsigned int conv = 0;
-	const char *p = b;
-	long mul = 1;
+	unsigned int decimal;
+	unsigned int i;
 
-	if (b == NULL)
-		return (0);
-	while (*p != '\0')
+	for (decimal = 0, i = 0; b[i] != '\0'; i++)
 	{
-		if (*p != '0' && *p != '1')
+		if (b[i] == '1')
+			decimal = (decimal << 1) | 1;
+		else if (b[i] == '0')
+			decimal <<= 1;
+		else if (b[i] != '0' && b[i] != '1')
 			return (0);
-		length++;
-		p++;
 	}
-	for (i = length - 1; i >= 0; i--)
-	{
-		conv += (b[i] - '0') * mul;
-		mul = mul * 2;
-	}
-	return (conv);
+
+	return (decimal);
 }
