@@ -23,7 +23,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (buf == NULL)
 		return (0);
 	rcount = read(fp, buf, letters);
-	if (count < 0)
+	if (rcount < 0)
 	{
 		free(buf);
 		close(fp);
