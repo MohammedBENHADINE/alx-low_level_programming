@@ -24,7 +24,7 @@ int main(int ac, char **av)
 	}
 	fp = open(av[2], O_WRONLY | O_TRUNC);
 	if (fp < 0)
-		fp = open(av[2], O_WRONLY | O_CREAT, 664);
+		fp = open(av[2], O_WRONLY | O_CREAT, 0664);
 	if (fp < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
