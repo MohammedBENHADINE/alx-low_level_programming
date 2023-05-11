@@ -47,8 +47,7 @@ int main(int ac, char **av)
 		wcount = write(fp, buf, rcount);
 		if (wcount != rcount || wcount < 0)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write
-				       	to %s\n", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
 		rcount = read(fq, buf, 1024);
