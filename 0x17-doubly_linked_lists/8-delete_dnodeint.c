@@ -3,7 +3,6 @@
  * delete_dnodeint_at_index - insert at index
  * @head: head of list
  * @index: index of node
- * @n: data
  * Return: 1 or -1
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
@@ -30,7 +29,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			{
 				if (current->next)
 					current->next->prev = current->prev;
-				if (current ->prev)
+				if (current->prev)
 					current->prev->next = current->next;
 				free(current);
 				return (1);
