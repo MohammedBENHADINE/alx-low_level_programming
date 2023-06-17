@@ -6,19 +6,19 @@
  * @n: data
  * Return: 1 or -1
  */
-dlistint_t *delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *current;
-	dlistint_t *new;
 	unsigned int pos = 0;
 
 	if (head == NULL || *head == NULL)
 		return (-1);
-	if (idx == 0)
+	if (index == 0)
 	{
-		head->next->prev = NULL;
+		(*head)->next->prev = NULL;
+		current = (*head)->next;
 		free(*head);
-		*head = head->next;
+		*head = current;
 		return (1);
 	}
 	else
