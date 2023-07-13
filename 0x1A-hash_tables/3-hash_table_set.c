@@ -18,6 +18,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	newNode->key = (char *) malloc(strlen(key) + 1);
 	newNode->value = (char *) malloc(strlen(value) + 1);
+	if (newNode->key == NULL ||  newNode->value == NULL)
+		return (0);
 	strcpy(newNode->key, key);
 	strcpy(newNode->value, value);
 	idx = key_index((const unsigned char *)key, ht->size);
