@@ -10,21 +10,19 @@ void hash_table_print(const hash_table_t *ht)
 	hash_node_t *cur;
 	int flag = 0;
 
-	if (ht == NULL)
+	if (ht == NULL || ht->array == NULL)
 		return;
 	printf("{");
 	for (i = 0; i < ht->size; i++)
 	{	cur = ht->array[i];
 		while (cur)
 		{
+			if (flag == 1)
+				printf(", ");
 			printf("'%s': '%s'", cur->key, cur->value);
 			cur = cur->next;
-			if (cur)
-				printf(",");
 			flag = 1;
 		}
-		if (ht->array[i + 1] && flag)
-			printf(",");
 	}
 	printf("}\n");
 }
