@@ -16,13 +16,11 @@ int updateOrInsert(hash_table_t *ht, unsigned long int idx, hash_node_t *node)
 		if (strcmp(cur->key, node->key) == 0)
 		{
 			free(cur->value);
-			free(node->key);
-			free(node);
 			cur->value = (char *) malloc(strlen(node->value) + 1);
-			if (cur->value == NULL)
-				return (0);
 			strcpy(cur->value, node->value);
 			free(node->value);
+			free(node->key);
+			free(node);
 			return (1);
 		}
 		cur = cur->next;
@@ -72,9 +70,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		if (updateOrInsert(ht, idx, newNode) == 1)
-			return (1);
-		else
-			return (0);
+		return (updateOrInsert(ht, idx, newNode));
 	}
 }
