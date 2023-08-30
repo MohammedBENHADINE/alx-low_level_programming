@@ -1,16 +1,21 @@
+# Usage: make [all/clean/oclean/fclean] -f [file]
+
+
 CC = gcc
 SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS := -Wall -Werror -Wextra -pedantic
 
+.PHONY: all clean oclean re fclean
+
 all:  $(NAME)
 
 $(NAME): $(OBJ) m.h
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $@
 
 clean:
-	$(RM) $(NAME) *~ \#*\# .\#*
+	$(RM) $(NAME) *~
 
 oclean:
 	$(RM) $(OBJ)
@@ -18,5 +23,3 @@ oclean:
 fclean: clean oclean
 
 re: fclean all
-
-.PHONY: all clean oclean re fclean
