@@ -17,4 +17,4 @@ def island_perimeter(grid):
                     sum -= 2
                 if col > 0 and grid[row][col - 1] == 1:
                     sum -= 2
-    return perimeter
+    return sum
